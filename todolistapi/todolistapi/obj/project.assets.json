@@ -8779,11 +8779,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\admin\\source\\repos\\todolistapi\\todolistapi\\todolistapi.csproj",
+      "projectUniqueName": "C:\\Users\\admin\\Documents\\Angular\\IDO\\todolistapi\\todolistapi\\todolistapi.csproj",
       "projectName": "todolistapi",
-      "projectPath": "C:\\Users\\admin\\source\\repos\\todolistapi\\todolistapi\\todolistapi.csproj",
+      "projectPath": "C:\\Users\\admin\\Documents\\Angular\\IDO\\todolistapi\\todolistapi\\todolistapi.csproj",
       "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\admin\\source\\repos\\todolistapi\\todolistapi\\obj\\",
+      "outputPath": "C:\\Users\\admin\\Documents\\Angular\\IDO\\todolistapi\\todolistapi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

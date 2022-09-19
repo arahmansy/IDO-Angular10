@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+esVAPEPOQyfjsjCv7WKPeNsvgD474N/N4MarZYNlNRFp2ipemyn0PRNM4xELHNlS8pw/f0T5JdZW6LsgV7LLw==",
+  "dgSpecHash": "dfHb9/B1wRlKlB0Ehj0NE04CY1Y/xMk1RecSj4k42PfJpL6vSHueMJmqGjrQV/ezQMSBopONoLYf+z7NFPJMRw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\admin\\source\\repos\\todolistapi\\todolistapi\\todolistapi.csproj",
+  "projectFilePath": "C:\\Users\\admin\\Documents\\Angular\\IDO\\todolistapi\\todolistapi\\todolistapi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnet.identity.core\\2.2.3\\microsoft.aspnet.identity.core.2.2.3.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.9\\microsoft.aspnet.webapi.client.5.2.9.nupkg.sha512",
