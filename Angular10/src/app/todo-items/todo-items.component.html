@@ -1,0 +1,223 @@
+
+ <table>
+  <tr>
+    <mat-toolbar style="background-color:inherit ;">
+      <button class="myapp-header-image"  mat-icon-button >
+        <!-- <mat-icon>more_vert</mat-icon> -->
+         >
+      </button>
+      <span>My App</span>
+      <span class="example-spacer"></span>
+      <mat-form-field class="example-form-field" *ngIf="toggleSearch" >
+        <mat-label >Search</mat-label>
+        <input matInput type="text" [(ngModel)]="searchText" >  
+        <button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="searchText=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+     
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Search" (click)="toggleSearch=!toggleSearch">
+        <mat-icon >search</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="opendialog()">
+        <mat-icon>add</mat-icon>
+      </button>
+    <div>
+      <button class="example-header-image"  mat-icon-button [matMenuTriggerFor]="menu"  aria-label="Example icon-button with a menu">
+        <!-- <mat-icon>more_vert</mat-icon> -->
+         >
+      </button>
+      <mat-menu #menu="matMenu">
+       
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{username}}</mat-card-title>
+             
+          </mat-card-header>
+          <mat-card-actions>
+            <button mat-button (click)="logout()" > 
+              logout  <mat-icon>logout</mat-icon> </button>
+          </mat-card-actions>
+        </mat-card>   
+      </mat-menu>
+    </div>
+    </mat-toolbar>
+    
+
+  </tr>
+  <tr *ngIf="closebanner" style="text-align:right ;">
+    <button mat-icon-button class="example-icon" (click)="closebanner=false">
+      <mat-icon>info</mat-icon>
+    </button>
+  </tr>
+  <tr *ngIf="!closebanner">
+    <mat-toolbar style="background-color:#6E4C85 ;">
+      <span class="bannerinfo" >"Anything that can go worng ,will go wrong"</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon" (click)="closebanner=true">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-toolbar>
+  </tr>
+ </table>
+ 
+
+
+
+
+<br>
+<br>
+<div cdkDropListGroup>
+  <div class="example-container">
+    <h2>To do</h2>
+
+    <div style="border:none" cdkDropList id="todo" [cdkDropListData]="todo" class="example-list"
+      (cdkDropListDropped)="drop($event)" >
+      <div class="example-box" *ngFor="let item of todo" cdkDrag style="border:none" >
+       
+        <mat-card style="width:100%"   >
+          <div (dblclick)="editeitem=item.itemID">
+            <div *ngIf="item.itemID!==editeitem">
+              <h2  [ngStyle]="{'color':compare(item.itemName) ? 'red' : 'black'}" > {{item.itemName}} </h2>
+            </div>
+            <div *ngIf="item.itemID===editeitem">
+              <h2> <input value="{{item.itemName}}" [(ngModel)]="item.itemName" calss="form-control"
+                  (keyup.enter)="onKeyUp($event,item,item.itemID)"> </h2>
+            </div>
+            <table style="width:60%;">
+              <tr>
+                <td> <small>Category</small></td>
+                <td><strong>{{item.itemCategory}}</strong> </td>
+              </tr>
+
+              <tr>
+                <td> <small>Due Date</small></td>
+                <td><strong>{{item.itemDueDate}}</strong> </td>
+              </tr>
+
+              <tr>
+                <td> <small>Estimate</small></td>
+                <td><strong>{{item.itemEstimate}}</strong> </td>
+              </tr>
+
+              <tr>
+                <td> <small>Imortance</small></td>
+                <td><button mat-raised-button style="background-color: red;"
+                    *ngIf="item.itemImportance==='High'">{{item.itemImportance}} </button>
+                  <button mat-raised-button style="background-color: green;"
+                    *ngIf="item.itemImportance==='Low'">{{item.itemImportance}} </button>
+                  <button mat-raised-button style="background-color:orange;"
+                    *ngIf="item.itemImportance==='Midium'">{{item.itemImportance}} </button>
+                </td>
+              </tr>
+
+            </table>
+          </div>
+        </mat-card>
+     
+      </div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>Doing</h2>
+    <div style="border:none" id="doing" cdkDropList [cdkDropListData]="doing" class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of doing" cdkDrag style="border:none">
+        <mat-card style="width:100%" >
+          <div (dblclick)="editeitem=item.itemID">
+            <div *ngIf="item.itemID!==editeitem">
+              <h2 [ngStyle]="{'color':compare(item.itemName) ? 'red' : 'black'}" > {{item.itemName}} </h2>
+            </div>
+            <div *ngIf="item.itemID===editeitem">
+              <h2> <input value="{{item.itemName}}" [(ngModel)]="item.itemName" calss="form-control"
+                  (keyup.enter)="onKeyUp($event,item,item.itemID)"> </h2>
+            </div>
+            <table style="width:60%;">
+              <tr>
+                <td> <small>Category</small></td>
+                <td><strong>{{item.itemCategory}}</strong> </td>
+              </tr>
+
+              <tr>
+                <td> <small>Due Date</small></td>
+                <td><strong>{{item.itemDueDate}}</strong> </td>
+              </tr>
+
+              <tr>
+                <td> <small>Estimate</small></td>
+                <td><strong>{{item.itemEstimate}}</strong> </td>
+              </tr>
+
+              <tr>
+                <td> <small>Imortance</small></td>
+                <td><button mat-raised-button style="background-color: red;"
+                    *ngIf="item.itemImportance==='High'">{{item.itemImportance}} </button>
+                  <button mat-raised-button style="background-color: green;"
+                    *ngIf="item.itemImportance==='Low'">{{item.itemImportance}} </button>
+                  <button mat-raised-button style="background-color:orange;"
+                    *ngIf="item.itemImportance==='Midium'">{{item.itemImportance}} </button>
+                </td>
+              </tr>
+
+            </table>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>Done</h2>
+    <div cdkDropList id="done" [cdkDropListData]="done" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of done " cdkDrag>
+        <mat-card style="width:100%"  >
+          <div (dblclick)="editeitem=item.itemID">
+            <div *ngIf="item.itemID!==editeitem">
+              <h2 [ngStyle]="{'color':compare(item.itemName) ? 'red' : 'black'}" > {{item.itemName}} </h2>
+            </div>
+            <div *ngIf="item.itemID===editeitem">
+              <h2> <input value="{{item.itemName}}" [(ngModel)]="item.itemName" calss="form-control"
+                  (keyup.enter)="onKeyUp($event,item,item.itemID)"> </h2>
+            </div>
+            <table style="width:60%;">
+              <tr>
+                <td> <small>Category</small></td>
+                <td><strong>{{item.itemCategory}}</strong> </td>
+              </tr>
+
+              <tr>
+                <td> <small>Due Date</small></td>
+                <td><strong>{{item.itemDueDate}}</strong> </td>
+              </tr>
+
+              <tr>
+                <td> <small>Estimate</small></td>
+                <td><strong>{{item.itemEstimate}}</strong> </td>
+              </tr>
+
+              <tr>
+                <td> <small>Imortance</small></td>
+                <td><button mat-raised-button style="background-color: red;"
+                    *ngIf="item.itemImportance==='High'">{{item.itemImportance}} </button>
+                  <button mat-raised-button style="background-color: green;"
+                    *ngIf="item.itemImportance==='Low'">{{item.itemImportance}} </button>
+                  <button mat-raised-button style="background-color:orange;"
+                    *ngIf="item.itemImportance==='Midium'">{{item.itemImportance}} </button>
+                </td>
+              </tr>
+
+            </table>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+<!-- <button (click)="listall()"> list All</button>
+ -->

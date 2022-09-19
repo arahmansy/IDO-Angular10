@@ -1,0 +1,68 @@
+<h1>Adding new Task</h1>
+<div class="container">
+    <form [formGroup]="ToDoItemForm" (ngSubmit)="onsubmit()">
+        <div class="form-group">
+            <label>Title </label>
+            <input [class.is-invalid]="
+          ToDoItemForm.get('itemName').invalid &&
+          ToDoItemForm.get('itemName').touched
+          " type="text" class="form-control" formControlName="itemName" />
+            <small class="text-danger" [class.d-none]="ToDoItemForm.get('itemName').valid ||
+          ToDoItemForm.get('itemName').untouched
+          ">Title is Required!</small>
+        </div>
+
+        <div class="form-group">
+            <input type="hidden" class="form-control" formControlName="itemStatus" />
+        </div>
+
+        <div class="form-group">
+            <label>Category</label>
+            <input type="text" class="form-control" formControlName="itemCategory" />
+        </div>
+
+
+        <!-- <div class="form-group">
+            <label>Importance</label>
+            <input type="text" class="form-control" formControlName="itemImportance"/>
+        </div> -->
+
+        <div class="form-group">
+            <label>Select Importance</label>
+            <select class="form-control" formControlName="itemImportance">
+                <option value="Low" style="color:green">Low</option>
+                <option value="Midium" style="color:blue">Midium</option>
+                <option value="High" style="color: red;">High</option>
+            </select>
+        </div>
+
+
+
+        <!-- <div class="form-group">
+            <label>Due Date</label>
+            <input type="datetime" class="form-control" formControlName="itemDueDate" />
+
+        </div> -->
+
+        <div class="form-group">
+
+            <input type="datetime-local" class="form-control" id="itemDueDate" formControlName="itemDueDate" >
+        </div>
+
+
+        <div class="form-group">
+            <label>Estimated Date</label>
+            <input type="text" class="form-control" formControlName="itemEstimate" />
+        </div>
+
+
+
+        <br />
+        <button type="submit" class="btn btn-primary">Ok</button>
+    </form>
+    <!-- <br>
+    <button (click)="listall()">List</button>
+    <br>
+    <button (click)="test()" >test</button> -->
+        <!-- {{data.message}} -->
+    <!-- {{ ToDoItemForm.value | json }} -->
